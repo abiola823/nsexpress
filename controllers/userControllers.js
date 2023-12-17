@@ -50,7 +50,7 @@ const updateUser = async (req, res) => {
 const findUser = async (req, res) => {
     const {id} = req.params;
     try {
-        const find = await usersModel.findOne({_id: id || req.params.email})
+        const find = await usersModel.findOne({_id: id})
         if(find) return res.json(find);
     } catch (error) {
         console.log(error);
@@ -69,7 +69,7 @@ const findAll = async (req, res) => {
         const all = await usersModel.find();
         res.send(all);
     } catch (error) {
-        
+        console.log(error)
     }
 }
 export {
